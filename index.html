@@ -233,12 +233,14 @@ function nextYN(){
 }
 
 // FLOWERS & HEARTS ON HOLD
-let holdInterval;
-resultHeart.addEventListener('mousedown', () => {
-  holdInterval = setInterval(() => {
-    createFloatingIcon();
-  }, 100);
+// FLOWERS & HEARTS ON CLICK
+resultHeart.addEventListener('click', () => {
+  // create multiple floating icons on single click
+  for(let i=0; i<10; i++){
+    setTimeout(createFloatingIcon, i*100); // stagger them a bit
+  }
 });
+
 resultHeart.addEventListener('mouseup', () => clearInterval(holdInterval));
 resultHeart.addEventListener('mouseleave', () => clearInterval(holdInterval));
 
@@ -260,3 +262,4 @@ function createFloatingIcon(){
 </script>
 </body>
 </html>
+
